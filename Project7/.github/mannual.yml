@@ -1,0 +1,18 @@
+name: Say Hello
+
+# Allow manual trigger
+on:
+  workflow_dispatch:
+    inputs:
+      message:
+        description: 'Text to display'
+        required: true
+        default: 'Hello from GitHub Actions!'
+
+jobs:
+  say-hello:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Show the message
+        run: echo "${{ github.event.inputs.message }}"
